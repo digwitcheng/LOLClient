@@ -3,6 +3,7 @@ using LOLSocketModel;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainScene : MonoBehaviour {
 
@@ -11,7 +12,15 @@ public class MainScene : MonoBehaviour {
     [SerializeField]
     private Create createPanel;
 
-	async void Start () {
+    #region 人物面板刷新
+    [SerializeField]
+    private Text userName;
+    [SerializeField]
+    private Slider expSlider;
+    #endregion
+
+
+    async void Start () {
         if (GameData.User == null)
         {
             mask.SetActive(true);
@@ -32,4 +41,10 @@ public class MainScene : MonoBehaviour {
         mask.SetActive(false);
     }
 
+    public void RefreshUserUi()
+    {
+        userName.text = GameData.User.Name + "  等级" + GameData.User.Level;
+        expSlider.value = GameData.User.Exp / 100;
+
+    }
 }

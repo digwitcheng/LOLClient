@@ -1248,6 +1248,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mask: {fileID: 1035737267}
   createPanel: {fileID: 1112588947}
+  userName: {fileID: 1288261714}
+  expSlider: {fileID: 1043735801}
 --- !u!114 &1321041321
 MonoBehaviour:
   m_ObjectHideFlags: 0

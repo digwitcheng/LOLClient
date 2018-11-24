@@ -34,7 +34,6 @@ namespace Assets.Scripts.Login
 
             MessageModel sm = SerializationUtil.Decode(data, offset, count);
             messageQueue.Enqueue(sm);
-            Debug.Log(count);
             await Task.CompletedTask;
         }
 

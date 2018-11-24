@@ -35,6 +35,8 @@ namespace Assets.Scripts
         {
             GameData.User = (UserDto)model.Message;
             WarrningManager.errors.Add(new WarrningModel("online sucess"));
+            //刷新UI
+            action("RefreshUserUi");
         }
 
         private async void Info(MessageModel model)
@@ -51,13 +53,15 @@ namespace Assets.Scripts
             }
         }
 
-        private void Create(MessageModel model)
+        private async void Create(MessageModel model)
         {
             bool isSuccess = (bool)model.Message;
             if (isSuccess)
             {
                 //关闭面板
                 action("CloseCreate");
+                await NetIO.Instance.SendAsync(TypeProtocol.USER, 0, CommandProtocol.ONLINE_CREQ, null);
+                
 
             }
             else

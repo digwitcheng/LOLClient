@@ -11,8 +11,14 @@ using System.Threading.Tasks;
 public class NetIO
 {
     TcpSocketSaeaClient client;
+    public ConcurrentQueue<LOLSocketModel.MessageModel> MessageQueue
+    {
+        get;private set;
+    }
     private NetIO()
     {
+        MessageQueue = new ConcurrentQueue<MessageModel>();
+        Conntect();
     }
     private static NetIO instance;
     private static readonly object instanceLock = new object();
@@ -34,9 +40,9 @@ public class NetIO
         }
     }
 
-    public async  void Start(ConcurrentQueue<LOLSocketModel.MessageModel> messageQueue)
+     async  void Conntect()
     {
-        client = new TcpSocketSaeaClient(AppSetting.IP, AppSetting.PORT, new SimpleSaeaClientMessageDispatcher(messageQueue));
+        client = new TcpSocketSaeaClient(AppSetting.IP, AppSetting.PORT, new SimpleSaeaClientMessageDispatcher(MessageQueue));
          await client.Connect();
     }
 

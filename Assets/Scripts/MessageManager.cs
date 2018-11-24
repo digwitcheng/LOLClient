@@ -7,20 +7,13 @@ using UnityEngine;
 
 public class MessageManager : MonoBehaviour
 {
-    private ConcurrentQueue<MessageModel> messageQueue;
-    void Start()
-    {
-        messageQueue = new ConcurrentQueue<MessageModel>();
-        NetIO.Instance.Start(messageQueue);
-    }
-
     // Update is called once per frame
     void Update()
     {
-        while (!messageQueue.IsEmpty)
+        while (!NetIO.Instance.MessageQueue.IsEmpty)
         {
             LOLSocketModel.MessageModel model;
-            messageQueue.TryDequeue(out model);
+            NetIO.Instance.MessageQueue.TryDequeue(out model);
             IReceiveMessage<MessageModel> receive = HandlerFactory.Create(model.Type);
             receive.Receive(model,(s)=> { SendMessage((string)s); });
           //  StartCoroutine("HandlerWithCorutine", model);
