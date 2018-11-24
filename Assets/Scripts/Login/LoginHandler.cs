@@ -4,14 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LOLSocketModel;
-
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
 {
-    class LoginMessageHandler :AbsMessageHandler
+    class LoginHandler: IReceiveMessage<MessageModel>
     {
-        public override void Receive(MessageModel model)
+        Action<object> action;
+        public  void Receive(MessageModel model,Action<object>action)
         {
+            this.action = action;
             Result result = (Result)model.Message;            
             switch (model.Command)
             {
@@ -29,12 +32,12 @@ namespace Assets.Scripts
             switch (result)
             {
                 case Result.RegSuccess:                    
-                        WarrningManager.errors.Add(new WarrningModel(result + "",()=> { SendMessage("RegPanelClose"); }));
+                        WarrningManager.errors.Add(new WarrningModel(result + "",()=> { action("RegPanelClose"); }));
                     break;
                 case Result.RegAccountExist:
                 case Result.RegNameIllegal:
                 case Result.RegPasswordIllegal:
-                    WarrningManager.errors.Add(new WarrningModel(result + "", () => { SendMessage("ClearRegPassword"); }));
+                    WarrningManager.errors.Add(new WarrningModel(result + "", () => { action("ClearRegPassword"); }));
                     break;
                 default:
                     throw new ArgumentException("Register result");
@@ -43,15 +46,16 @@ namespace Assets.Scripts
 
         private void Login(Result result)
         {
+            action("ActiveLoginBtn");
             switch (result)
             {
                 case Result.LoginSuccess:
-                    SendMessage("ActiveLoginBtn");
+                    SceneManager.LoadScene(1);
                     break;
                 case Result.LoginRepeat:
                 case Result.LoginNameOrPasswordError:
                 case Result.LoginAccountNotExist:
-                    WarrningManager.errors.Add(new WarrningModel(result + "", ()=> { SendMessage("ActiveLoginBtn"); }));
+                    WarrningManager.errors.Add(new WarrningModel(result + "", ()=> { action("ActiveLoginBtn"); }));
                     break;
                 default:
                     throw  new ArgumentException("Login result");

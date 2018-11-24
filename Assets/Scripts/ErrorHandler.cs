@@ -3,9 +3,9 @@ using LOLSocketModel;
 
 namespace Assets.Scripts
 {
-    internal class ErrorHandler : AbsMessageHandler
+    internal class ErrorHandler : IReceiveMessage<MessageModel>
     {
-        public override void Receive(MessageModel model)
+        public void Receive(MessageModel model,Action<object> action)
         {
             throw new NotImplementedException();
         }

@@ -12,15 +12,12 @@
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.4.14f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
@@ -272,15 +269,18 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AppSetting.cs" />
     <Compile Include="Assets\Scripts\ErrorHandler.cs" />
-    <Compile Include="Assets\Scripts\IReceiveMessage.cs" />
+    <Compile Include="Assets\Scripts\ErrorTypeException.cs" />
+    <Compile Include="Assets\Scripts\GameData.cs" />
+    <Compile Include="Assets\Scripts\HandlerFactory.cs" />
+    <Compile Include="Assets\Scripts\Login\LoginHandler.cs" />
     <Compile Include="Assets\Scripts\Login\LoginScene.cs" />
-    <Compile Include="Assets\Scripts\Login\MonoBehaviourExtension.cs" />
-    <Compile Include="Assets\Scripts\Login\NetIO.cs" />
-    <Compile Include="Assets\Scripts\Login\SimpleSaeaClientMessageDispatcher.cs" />
-    <Compile Include="Assets\Scripts\LoginMessageHandler.cs" />
-    <Compile Include="Assets\Scripts\AbsMessageHandler.cs" />
+    <Compile Include="Assets\Scripts\Main\Create.cs" />
+    <Compile Include="Assets\Scripts\Main\MainScene.cs" />
     <Compile Include="Assets\Scripts\MessageManager.cs" />
-    <Compile Include="Assets\Scripts\ReceiveMessageFactory.cs" />
+    <Compile Include="Assets\Scripts\MonoBehaviourExtension.cs" />
+    <Compile Include="Assets\Scripts\Net\NetIO.cs" />
+    <Compile Include="Assets\Scripts\Net\SimpleSaeaClientMessageDispatcher.cs" />
+    <Compile Include="Assets\Scripts\UserHandler.cs" />
     <Compile Include="Assets\Scripts\WarrningManager.cs" />
     <Compile Include="Assets\Scripts\WarrningModel.cs" />
     <Compile Include="Assets\Scripts\WarrningWindow.cs" />

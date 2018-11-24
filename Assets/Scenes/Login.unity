@@ -422,6 +422,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 856742936}
     m_Modifications:
+    - target: {fileID: 114066464976359872, guid: 260a8258532544a48a1a3d7f09c97767,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224956015605818636, guid: 260a8258532544a48a1a3d7f09c97767,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -517,6 +522,30 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 856742940}
+    - target: {fileID: 1762761054534130, guid: 260a8258532544a48a1a3d7f09c97767, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066464976359872, guid: 260a8258532544a48a1a3d7f09c97767,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066464976359872, guid: 260a8258532544a48a1a3d7f09c97767,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066464976359872, guid: 260a8258532544a48a1a3d7f09c97767,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 856742940}
+    - target: {fileID: 114066464976359872, guid: 260a8258532544a48a1a3d7f09c97767,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RegPanelClose
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 260a8258532544a48a1a3d7f09c97767, type: 2}
   m_IsPrefabParent: 0
@@ -805,7 +834,6 @@ GameObject:
   - component: {fileID: 856742940}
   - component: {fileID: 856742941}
   - component: {fileID: 856742942}
-  - component: {fileID: 856742943}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -934,17 +962,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 1590611739}
---- !u!114 &856742943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 856742935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae67d4fa6ee0a8b47903d2c8f9175cf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1038161141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,11 +1734,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114437402519482674, guid: 811a33c5e70895f4897400b26c3be610,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Close
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 811a33c5e70895f4897400b26c3be610, type: 2}
